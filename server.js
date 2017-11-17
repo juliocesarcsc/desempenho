@@ -8,6 +8,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({'extended': 'true'}));
 app.use(bodyParser.json({type: 'application/vnd.api+json'}));
 
+app.use("*", function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    next();
+});
+
 // configuration =================
 myApp.db = require('./config/conn').db;
 //Importing utils
@@ -28,10 +36,6 @@ myApp.db.authenticate()
     .catch(function (err) {
         console.error('Unable to connect to the database:', err);
     });
-
-app.use(function (req, res) {
-    res.status(404).send({url: req.originalUrl + ' not found'})
-});
 
 
 // listen (start app with node server.js) ======================================
