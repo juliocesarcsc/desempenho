@@ -1,0 +1,143 @@
+<div ng-cloak layout="column">
+    <md-toolbar class="md-menu-toolbar" layout="row">
+        <h3 flex-order-xs="2" flex-order-sm="2" flex-order-md="2" flex-xs flex-sm flex-md class="header">Agence</h3>
+        <md-menu-bar hide show-gt-md>
+            <md-menu>
+                <md-button ng-click="$mdOpenMenu($event)" aria-label="Open sample menu">
+                    <i class="fa fa-home fa-lg"></i> Agence
+                </md-button>
+                <md-menu-content>
+                    <md-menu-item>
+                        <md-button ng-click="ctrl.sampleAction('Agence')">Action</md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+            <md-menu>
+                <md-button ng-click="$mdOpenMenu($event)" aria-label="Open sample menu">
+                    <i class="fa fa-clipboard fa-lg"></i> Projetos
+                </md-button>
+                <md-menu-content>
+                    <md-menu-item>
+                        <md-button ng-click="ctrl.sampleAction('Projetos')">Action</md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+            <md-menu>
+                <md-button ng-click="$mdOpenMenu($event)" aria-label="Open sample menu">
+                    <i class="fa fa-pencil-square-o fa-lg"></i> Administrativo
+                </md-button>
+                <md-menu-content>
+                    <md-menu-item>
+                        <md-button ng-click="ctrl.sampleAction('Administrativo')">Action</md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+            <md-menu>
+                <md-button ng-click="$mdOpenMenu($event)" aria-label="Open sample menu">
+                    <i class="fa fa-users fa-lg"></i> Comercial
+                </md-button>
+                <md-menu-content>
+                    <md-menu-item>
+                        <md-button ng-click="ctrl.sampleAction('Comercial')">Action</md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+            <md-menu>
+                <md-button ng-click="$mdOpenMenu($event)" aria-label="Open sample menu">
+                    <i class="fa fa-credit-card fa-lg"></i> Financeiro
+                </md-button>
+                <md-menu-content>
+                    <md-menu-item>
+                        <md-button ui-sref="common.desempenho">Desempenho</md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+            <md-menu>
+                <md-button ng-click="$mdOpenMenu($event)" aria-label="Open sample menu">
+                    <i class="fa fa-user fa-lg"></i> Usuário
+                </md-button>
+                <md-menu-content>
+                    <md-menu-item>
+                        <md-button ng-click="ctrl.sampleAction('Usuário')">Action</md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+            <md-button ng-click="ctrl.sampleAction('Sair')"><i class="fa fa-times-circle-o fa-lg"></i> Sair</md-button>
+        </md-menu-bar>
+        <!--Menu small-->
+        <md-menu hide-gt-md flex-order-xs="1" flex-order-sm="1" flex-order-md="1">
+            <md-button aria-label="Options" class="md-icon-button"
+                       ng-click="$mdOpenMenu($event)">
+                <i class="fa fa-bars fa-lg"></i>
+            </md-button>
+            <md-menu-content width="4">
+                <md-menu>
+                    <md-button ng-click="$mdOpenMenu($event)" aria-label="Open sample menu">
+                        <i class="fa fa-home fa-lg"></i> Agence
+                    </md-button>
+                    <md-menu-content>
+                        <md-menu-item>
+                            <md-button ng-click="ctrl.sampleAction('Agence')">Action</md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+                <md-menu>
+                    <md-button ng-click="$mdOpenMenu($event)" aria-label="Open sample menu">
+                        <i class="fa fa-clipboard fa-lg"></i> Projetos
+                    </md-button>
+                    <md-menu-content>
+                        <md-menu-item>
+                            <md-button ng-click="ctrl.sampleAction('Projetos')">Action</md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+                <md-menu>
+                    <md-button ng-click="$mdOpenMenu($event)" aria-label="Open sample menu">
+                        <i class="fa fa-pencil-square-o fa-lg"></i> Administrativo
+                    </md-button>
+                    <md-menu-content>
+                        <md-menu-item>
+                            <md-button ng-click="ctrl.sampleAction('Administrativo')">Action</md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+                <md-menu>
+                    <md-button ng-click="$mdOpenMenu($event)" aria-label="Open sample menu">
+                        <i class="fa fa-users fa-lg"></i> Comercial
+                    </md-button>
+                    <md-menu-content>
+                        <md-menu-item>
+                            <md-button ng-click="ctrl.sampleAction('Comercial')">Action</md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+                <md-menu>
+                    <md-button ng-click="$mdOpenMenu($event)" aria-label="Open sample menu">
+                        <i class="fa fa-credit-card fa-lg"></i> Financeiro
+                    </md-button>
+                    <md-menu-content>
+                        <md-menu-item>
+                            <md-button ui-sref="common.desempenho">Desempenho</md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+                <md-menu>
+                    <md-button ng-click="$mdOpenMenu($event)" aria-label="Open sample menu">
+                        <i class="fa fa-user fa-lg"></i> Usuário
+                    </md-button>
+                    <md-menu-content>
+                        <md-menu-item>
+                            <md-button ng-click="ctrl.sampleAction('Usuário')">Action</md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+                <md-button ng-click="ctrl.sampleAction('Sair')"><i class="fa fa-times-circle-o fa-lg"></i> Sair
+                </md-button>
+            </md-menu-content>
+        </md-menu>
+        <!--End Menu small-->
+    </md-toolbar>
+    <md-content>
+        <ui-view></ui-view>
+    </md-content>
+</div>

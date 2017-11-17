@@ -1,0 +1,236 @@
+<md-card>
+    <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="por consultor">
+            <md-content>
+                <div layout="row" layout-xs="column" layout-sm="column" layout-padding-gt-sm>
+                    <div layout="column" layout-sm="row">
+                        <md-menu hide-gt-md>
+                            <md-button aria-label="Options" class="md-icon-button"
+                                       ng-click="$mdOpenMenu($event)">
+                                <i class="fa fa-chevron-circle-down fa-lg"></i>
+                            </md-button>
+                            <md-menu-content width="3">
+                                <md-menu-item>
+                                    <md-button class="md-raised" ng-click="ctrl.relatorio()">
+                                        <i class="fa fa-file-text-o fa-lg"></i>Relatório
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button class="md-raised" ng-click="ctrl.grafico()">
+                                        <i class="fa fa-bar-chart fa-lg"></i>Gráfico
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button class="md-raised" ng-click="ctrl.pizza()">
+                                        <i class="fa fa-pie-chart fa-lg"></i>Pizza
+                                    </md-button>
+                                </md-menu-item>
+                            </md-menu-content>
+                        </md-menu>
+                        <md-subheader class="md-primary" hide-xs>Período</md-subheader>
+                        <div layout-xs="row" layout-sm="row" layout="column" flex-gt-md>
+                            <md-datepicker ng-model="ctrl.fechaIni"
+                                           ng-required="ctrl.dateFields.required"
+                                           md-date-locale="ctrl.dateFields.locale"
+                                           md-mode="month"
+                                           md-placeholder="Mês inicial"
+                                           aria-label="fecha inicio"
+                                           flex-xs="50"
+                                           flex-sm
+                                           md-open-on-focus="true">
+                            </md-datepicker>
+                            <div style="height: 25px" hide-xs></div>
+                            <md-datepicker ng-model="ctrl.fechaFin"
+                                           ng-required="ctrl.dateFields.required"
+                                           md-date-locale="ctrl.dateFields.locale"
+                                           md-placeholder="Mês final"
+                                           md-mode="month"
+                                           aria-label="fecha fin"
+                                           flex-xs="50"
+                                           flex-sm
+                                           md-open-on-focus="true">
+                            </md-datepicker>
+                        </div>
+                    </div>
+                    <div layout="row" flex-gt-md>
+                        <md-divider hide-xs hide-sm></md-divider>
+                        <div layout="row" layout-xs="column" flex-gt-md>
+                            <div flex></div>
+                            <md-card layout="column" class="consultors-list">
+                                <md-subheader class="md-primary">Consultores</md-subheader>
+                                <md-list-item ng-click="ctrl.addConsultortoQuery(consultor)"
+                                              ng-repeat="consultor in ctrl.consultors">
+                                    <p> {{ consultor.no_usuario }} </p>
+                                    <md-checkbox class="md-secondary" ng-model="consultor.checked"></md-checkbox>
+                                </md-list-item>
+                            </md-card>
+                            <div layout="column" layout-xs="row" id="btns_container">
+                                <div flex></div>
+                                <md-button class="md-icon-button" aria-label="add all"
+                                           ng-click="ctrl.addAllConsultorsToQuery()">
+                                    <md-tooltip md-direction="top">
+                                        Mover tudo
+                                    </md-tooltip>
+                                    <i class="fa fa-angle-double-right fa-lg" ng-class="ctrl.rotateClass"></i>
+                                </md-button>
+                                <md-button class="md-icon-button" aria-label="add selected"
+                                           ng-click="ctrl.addConsultorsToQuery()">
+                                    <md-tooltip md-direction="top">
+                                        Mover selecionado
+                                    </md-tooltip>
+                                    <i class="fa fa-angle-right fa-lg"></i>
+                                </md-button>
+                                <md-button class="md-icon-button" aria-label="remove selected"
+                                           ng-click="ctrl.removeConsultorsFromQuery()">
+                                    <md-tooltip md-direction="top">
+                                        Remover selecionado
+                                    </md-tooltip>
+                                    <i class="fa fa-angle-left fa-lg"></i>
+                                </md-button>
+                                <md-button class="md-icon-button" aria-label="remove all"
+                                           ng-click="ctrl.removeAllConsultorsFromQuery()">
+                                    <md-tooltip md-direction="top">
+                                        Remover tudo
+                                    </md-tooltip>
+                                    <i class="fa fa-angle-double-left fa-lg"></i>
+                                </md-button>
+                                <div flex></div>
+                            </div>
+                            <md-card layout="column" class="consultors-list">
+                                <md-subheader class="md-primary">Consultores selecionados</md-subheader>
+                                <md-list-item ng-repeat="consultor in ctrl.consultorsQuery"
+                                              ng-click="ctrl.removeConsultorFromQuery(consultor)">
+                                    <p> {{ consultor.no_usuario }} </p>
+                                    <md-checkbox class="md-secondary" ng-model="consultor.checked"></md-checkbox>
+                                </md-list-item>
+                            </md-card>
+                            <div flex></div>
+                        </div>
+                        <md-divider hide show-gt-md hide-xs hide-sm></md-divider>
+                        <div layout="column" hide show-gt-md>
+                            <div flex></div>
+                            <md-button class="md-raised" ng-click="ctrl.relatorio()">
+                                <i class="fa fa-file-text-o fa-lg"></i>Relatório
+                            </md-button>
+                            <md-button class="md-raised" ng-click="ctrl.grafico()">
+                                <i class="fa fa-bar-chart fa-lg"></i>Gráfico
+                            </md-button>
+                            <md-button class="md-raised" ng-click="ctrl.pizza()">
+                                <i class="fa fa-pie-chart fa-lg"></i>Pizza
+                            </md-button>
+                            <div flex></div>
+                        </div>
+                    </div>
+                </div>
+                <md-divider style="margin-bottom: 18px" flex-xs></md-divider>
+                <div ng-show="ctrl.showRelatorio">
+                    <table ng-repeat="consultor in ctrl.datosDesempenho"
+                           class="table table-bordered table-hover table-sm">
+                        <thead bgcolor="#efefef">
+                        <td colspan="5"><span class="style3">{{consultor.no_usuario}}</span></td>
+                        <tr bgcolor="#fafafa">
+                            <td nowrap="">
+                                <div align="center"><strong>Período</strong></div>
+                            </td>
+                            <td>
+                                <div align="center"><strong>Receita Líquida </strong></div>
+                            </td>
+                            <td>
+                                <div align="center"><strong>Custo Fixo </strong></div>
+                            </td>
+                            <td>
+                                <div align="center"><strong>Comissão</strong></div>
+                            </td>
+                            <td>
+                                <div align="center"><strong>Lucro</strong></div>
+                            </td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr bgcolor="#fafafa" ng-repeat="period in consultor.periods">
+                            <td nowrap="">{{period.fecha | date:'MMMM - yyyy'}}</td>
+                            <td>
+                                <div align="right">R$ {{period.receita_liquida | number : 2}}</div>
+                            </td>
+                            <td>
+                                <div align="right">R$ {{consultor.cuxto_fijo | number : 2}}</div>
+                            </td>
+                            <td>
+                                <div align="right">R$ {{period.comissao | number : 2}}</div>
+                            </td>
+                            <td>
+                                <div align="right"><font color="#FF0000">R$ {{period.lucro | number : 2}}</font>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr bgcolor="#efefef">
+                            <td nowrap="" bgcolor="#efefef"><strong>SALDO</strong></td>
+                            <td>
+                                <div align="right"><font color="#000000">R$
+                                    {{consultor.receita_liquida_total | number : 2}}</font></div>
+                            </td>
+                            <td>
+                                <div align="right"><font color="#000000">R$ {{consultor.cuxto_fijo_total |
+                                    number :
+                                    2}}</font></div>
+                            </td>
+                            <td>
+                                <div align="right"><font color="#000000">R$ {{consultor.comissao_total | number
+                                    :
+                                    2}}</font></div>
+                            </td>
+                            <td>
+                                <div align="right"><font color="#0000FF">R$ {{consultor.lucro_total | number :
+                                    2}}</font></div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div layout="row" ng-show="ctrl.showGrafico">
+                    <div flex></div>
+                    <fusioncharts
+                            width="90%"
+                            height="60%"
+                            type="mscombi2d"
+                            datasource="{{ctrl.graficoDataSource}}"
+                    ></fusioncharts>
+                    <div flex></div>
+                </div>
+                <div layout="row" ng-show="ctrl.showPizza">
+                    <div flex="10"></div>
+                    <fusioncharts
+                            flex
+                            width="100%"
+                            height="50%"
+                            type="pie3d"
+                            datasource="{{ctrl.pizzaDataSource}}"
+                    ></fusioncharts>
+                    <div flex="10"></div>
+                </div>
+            </md-content>
+        </md-tab>
+        <md-tab label="por cliente">
+            <md-content class="md-padding">
+                <h1 class="md-display-2">Tab Two</h1>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue.
+                    Phasellus
+                    volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium
+                    ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.
+                    Aliquam
+                    erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum enim, vel tempor
+                    sapien arcu a tellus. Vivamus convallis sodales ante varius gravida. Curabitur a purus vel
+                    augue
+                    ultrices ultricies id a nisl. Nullam malesuada consequat diam, a facilisis tortor volutpat
+                    et.
+                    Sed urna dolor, aliquet vitae posuere vulputate, euismod ac lorem. Sed felis risus, pulvinar
+                    at
+                    interdum quis, vehicula sed odio. Phasellus in enim venenatis, iaculis tortor eu, bibendum
+                    ante.
+                    Donec ac tellus dictum neque volutpat blandit. Praesent efficitur faucibus risus, ac auctor
+                    purus porttitor vitae. Phasellus ornare dui nec orci posuere, nec luctus mauris semper.</p>
+            </md-content>
+        </md-tab>
+    </md-tabs>
+</md-card>

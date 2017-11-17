@@ -1,0 +1,30 @@
+.header {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.consultors-list {
+    max-height: 285px;
+    overflow: auto;
+    min-width: 250px;
+}
+
+.custom-table {
+    margin-top: 18px;
+    width: 100%;
+    border: 1px solid #6d6e71;
+}
+
+md-menu-bar {
+    padding-top: 12px;
+}
+
+@media only screen and (max-width: 600px) {
+    #btns_container .md-icon-button {
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
+}
