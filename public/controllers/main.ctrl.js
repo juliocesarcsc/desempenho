@@ -76,7 +76,6 @@ app.controller('MainCtrl', function MainCtrl($scope, Toast, DesempenhoService, s
 
     function getDatosFaturaDesempenho(callback) {
         if (!vm.fechaIni || !vm.fechaFin || !vm.consultorsQuery.length) {
-            console.log(!vm.consultorsQuery.length, "lalalaa");
             var msg = !vm.consultorsQuery.length ? 'Escoja al menos un consultor' : 'Escoja el período';
             Toast.show(msg, 'top right', 3000);
             return;
@@ -90,7 +89,6 @@ app.controller('MainCtrl', function MainCtrl($scope, Toast, DesempenhoService, s
         }
         DesempenhoService.getDatosFaturaDesempenho(params)
             .success(function (data) {
-                console.log(data);
                 if (!data.relatorio.datos.length)
                     Toast.show('No hay datos que coincidan con los criterios especificados', 'top right', 3000);
                 else
@@ -154,7 +152,6 @@ app.controller('MainCtrl', function MainCtrl($scope, Toast, DesempenhoService, s
                     }
                     vm.graficoDataSource.categories[0].category.push(category);
                 });
-                console.log(result.grafico, "lolololo");
                 vm.graficoDataSource.dataset = result.grafico;
                 vm.showPizza = false;
                 vm.showGrafico = true;
@@ -204,7 +201,6 @@ app.controller('MainCtrl', function MainCtrl($scope, Toast, DesempenhoService, s
     };
 
     function addConsultorsToQuery() {
-        console.log(vm.consultors);
         vm.consultors.forEach(function (consultor) {
             if (consultor.checked) {
                 consultor.checked = false;

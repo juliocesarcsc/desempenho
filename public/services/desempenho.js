@@ -5,7 +5,6 @@ app.factory('DesempenhoService', ['$http', function ($http) {
         return $http.get(urlBase + "consultors");
     }
     var getDatosFaturaDesempenho = function (params) {
-        console.log(params);
         return $http.post(urlBase + "dato_fatura_desempenho", params);
     }
 

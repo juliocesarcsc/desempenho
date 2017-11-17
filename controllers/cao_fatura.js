@@ -1,6 +1,5 @@
 var ctrl = {
     get_dato_fatura_desempenho: function (req, res) {
-        console.log(req.body, "BODY");
         var self = this;
         var moment = require('moment');
         var sql_query = "SELECT cu.co_usuario, MONTH(cf.data_emissao) as month, YEAR(cf.data_emissao) as year, " +
@@ -34,12 +33,10 @@ var ctrl = {
                         });
                     })
                     .catch(function (error) {
-                        console.log(error);
                         res.status(500).json(error);
                     })
             })
             .catch(function (error) {
-                console.log(error);
                 res.status(500).json(error);
             })
     },

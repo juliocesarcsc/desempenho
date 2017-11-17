@@ -1,6 +1,13 @@
 Sequelize = require('sequelize');
-var sequelize = new Sequelize('test', 'root', 'root', {
-    host: 'localhost',
+var conn_db = {
+    db_name: "test",
+    user: "root",
+    password: "root",
+    host: "localhost",
+}
+
+var sequelize = new Sequelize(conn_db.db_name, conn_db.user, conn_db.password, {
+    host: conn_db.host,
     dialect: 'mysql',
     define: {
         timestamps: false
