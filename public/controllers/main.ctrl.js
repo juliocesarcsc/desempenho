@@ -76,7 +76,7 @@ app.controller('MainCtrl', function MainCtrl($scope, Toast, DesempenhoService, s
 
     function getDatosFaturaDesempenho(callback) {
         if (!vm.fechaIni || !vm.fechaFin || !vm.consultorsQuery.length) {
-            var msg = !vm.consultorsQuery.length ? 'Escoja al menos un consultor' : 'Escoja el período';
+            var msg = !vm.consultorsQuery.length ? 'Escolha pelo menos um consultor' : 'Escolha el período';
             Toast.show(msg, 'top right', 3000);
             return;
         }
@@ -90,7 +90,7 @@ app.controller('MainCtrl', function MainCtrl($scope, Toast, DesempenhoService, s
         DesempenhoService.getDatosFaturaDesempenho(params)
             .success(function (data) {
                 if (!data.relatorio.datos.length)
-                    Toast.show('No hay datos que coincidan con los criterios especificados', 'top right', 3000);
+                    Toast.show('Não há dados que correspondam aos critérios especificados', 'top right', 3000);
                 else
                     callback({success: true, relatorio: data.relatorio, grafico: data.grafico});
             })
@@ -108,7 +108,7 @@ app.controller('MainCtrl', function MainCtrl($scope, Toast, DesempenhoService, s
                 vm.showGrafico = false;
                 vm.showRelatorio = true;
             } else
-                Toast.show('Ocurrió unn error al cargar los datos', 'top right', 3000);
+                Toast.show('Ocorreu um erro ao carregar os dados', 'top right', 3000);
         })
     }
 
@@ -127,7 +127,7 @@ app.controller('MainCtrl', function MainCtrl($scope, Toast, DesempenhoService, s
                 vm.showGrafico = false;
                 vm.showRelatorio = false;
             } else
-                Toast.show('Ocurrió unn error al cargar los datos', 'top right', 3000);
+                Toast.show('Ocorreu um erro ao carregar os dados', 'top right', 3000);
         });
     }
 
@@ -157,7 +157,7 @@ app.controller('MainCtrl', function MainCtrl($scope, Toast, DesempenhoService, s
                 vm.showGrafico = true;
                 vm.showRelatorio = false;
             } else
-                Toast.show('Ocurrió unn error al cargar los datos', 'top right', 3000);
+                Toast.show('Ocorreu um erro ao carregar os dados', 'top right', 3000);
         })
     }
 

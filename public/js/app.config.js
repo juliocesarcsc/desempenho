@@ -1,7 +1,10 @@
 /**
  * Created by Julio on 09-11-17.
  */
-app.config(function ($urlRouterProvider, $stateProvider) {
+app.config(function ($mdThemingProvider, $urlRouterProvider, $stateProvider) {
+    $mdThemingProvider.theme('default')
+        .primaryPalette('blue-grey')
+        .accentPalette('indigo');
 
     $urlRouterProvider.otherwise(function () {
         return '/';
