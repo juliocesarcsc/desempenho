@@ -1,5 +1,5 @@
 .header {
-    padding-top: 10px;
+    padding-top: 15px;
     padding-left: 10px;
 }
 
@@ -19,6 +19,27 @@ md-menu-bar {
     padding-top: 12px;
 }
 
+.mask {
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 1000;
+    opacity: 0.2;
+    background: black;
+}
+
+.overlay {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    left: 50%;
+    margin-left: 0px;
+    z-index: 1001;
+}
+
 @media only screen and (max-width: 600px) {
     #btns_container .md-icon-button {
         -webkit-transform: rotate(90deg);
@@ -26,5 +47,11 @@ md-menu-bar {
         -o-transform: rotate(90deg);
         -ms-transform: rotate(90deg);
         transform: rotate(90deg);
+    }
+}
+
+@media only screen and (max-width: 960px) {
+    .header {
+        padding-top: 6px;
     }
 }

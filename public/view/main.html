@@ -1,6 +1,11 @@
 <div ng-cloak layout="column">
-    <md-toolbar class="md-menu-toolbar" layout="row">
-        <h3 flex-order-xs="2" flex-order-sm="2" flex-order-md="2" flex-xs flex-sm flex-md class="header">Agence</h3>
+    <md-toolbar class="md-menu-toolbar" layout="row" style="background-color: #6593E8">
+        <div flex-order-xs="2" flex-order-sm="2" flex-order-md="2"
+             flex-xs flex-sm flex-md layout="column"  layout-align="center start">
+            <a href="/">
+                <h3 layout-align="center" style="color: black">Agence</h3>
+            </a>
+        </div>
         <md-menu-bar hide show-gt-md>
             <md-menu>
                 <md-button ng-click="$mdOpenMenu($event)" aria-label="Open sample menu">

@@ -10,8 +10,7 @@ app.factory('staticData', function () {
         , {name: 'Setembro'}
         , {name: 'Outubro'}
         , {name: 'Novembro'}
-        , {name: 'Dezembro'}]
-
+        , {name: 'Dezembro'}];
     return {
         meses: meses
     };

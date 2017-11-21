@@ -123,7 +123,7 @@
                     </div>
                 </div>
                 <md-divider style="margin-bottom: 18px" flex-xs></md-divider>
-                <div ng-show="ctrl.showRelatorio">
+                <div ng-show="ctrl.showRelatorio" id="relatorio-container">
                     <table ng-repeat="consultor in ctrl.datosDesempenho"
                            class="table table-bordered table-hover table-sm">
                         <thead bgcolor="#efefef">
@@ -170,43 +170,42 @@
                                     {{consultor.receita_liquida_total | number : 2}}</font></div>
                             </td>
                             <td>
-                                <div align="right"><font color="#000000">R$ {{consultor.cuxto_fijo_total |
-                                    number :
-                                    2}}</font></div>
+                                <div align="right">R$ {{consultor.cuxto_fijo_total | number : 2}}</div>
                             </td>
                             <td>
-                                <div align="right"><font color="#000000">R$ {{consultor.comissao_total | number
-                                    :
-                                    2}}</font></div>
+                                <div align="right">R$ {{consultor.comissao_total | number : 2}}</div>
                             </td>
                             <td>
-                                <div align="right"><font color="#0000FF">R$ {{consultor.lucro_total | number :
-                                    2}}</font></div>
+                                <div align="right">R$ {{consultor.lucro_total | number : 2}}</div>
                             </td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
-                <div layout="row" ng-show="ctrl.showGrafico">
+                <div layout="row" ng-show="ctrl.showGrafico" id="grafico-container">
                     <div flex></div>
-                    <fusioncharts
-                            width="90%"
-                            height="60%"
-                            type="mscombi2d"
-                            datasource="{{ctrl.graficoDataSource}}"
-                    ></fusioncharts>
+                    <div flex="80" style="padding-bottom: 18px">
+                        <fusioncharts
+                                width="100%"
+                                height="350px"
+                                type="mscombi2d"
+                                datasource="{{ctrl.graficoDataSource}}"
+                        ></fusioncharts>
+                    </div>
                     <div flex></div>
                 </div>
-                <div layout="row" ng-show="ctrl.showPizza">
-                    <div flex="10"></div>
-                    <fusioncharts
-                            flex
-                            width="100%"
-                            height="50%"
-                            type="pie3d"
-                            datasource="{{ctrl.pizzaDataSource}}"
-                    ></fusioncharts>
-                    <div flex="10"></div>
+                <div layout="row" ng-show="ctrl.showPizza" id="pizza-container">
+                    <div flex></div>
+                    <div flex="80" style="padding-bottom: 18px">
+                        <fusioncharts
+                                flex
+                                width="100%"
+                                height="350px"
+                                type="pie3d"
+                                datasource="{{ctrl.pizzaDataSource}}"
+                        ></fusioncharts>
+                    </div>
+                    <div flex></div>
                 </div>
             </md-content>
         </md-tab>

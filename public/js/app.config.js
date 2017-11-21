@@ -23,7 +23,8 @@ app.config(function ($mdThemingProvider, $urlRouterProvider, $stateProvider) {
     }, desempenhoState = {
         name: 'common.desempenho',
         url: '/desempenho',
-        templateUrl: '../view/desempenho/desempenho_main.html'
+        templateUrl: '../view/desempenho/desempenho_main.html',
+        controller: 'DesempenhoCtrl as ctrl'
     }
 
     $stateProvider
