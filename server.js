@@ -16,28 +16,11 @@ app.use("*", function (req, res, next) {
     next();
 });
 
-// configuration =================
 myApp.db = require('./config/conn').db;
-//Importing utils
 require('./config/util');
-//Importing models
 require('./config/model');
-//Importing controllers
 require('./config/controllers');
-//Importing routes
 require('./config/routes')(app);
 
 
-// check db connection
-myApp.db.authenticate()
-    .then(function () {
-        console.log('Connection has been established successfully.');
-    })
-    .catch(function (err) {
-        console.error('Unable to connect to the database:', err);
-    });
-
-
-// listen (start app with node server.js) ======================================
 app.listen(8080);
-console.log("App listening on port 8080");

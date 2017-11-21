@@ -165,7 +165,6 @@ app.controller('DesempenhoCtrl', function MainCtrl($scope, Toast, DesempenhoServ
                     }
                     vm.graficoDataSource.categories[0].category.push(category);
                 });
-                //vm.graficoDataSource.dataset = result.grafico;
                 while (result.grafico.length) {
                     vm.graficoDataSource.dataset.push(result.grafico.pop());
                 }

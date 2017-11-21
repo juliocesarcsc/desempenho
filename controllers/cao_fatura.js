@@ -91,19 +91,6 @@ var ctrl = {
     },
     format_grafico_data: function (periodsResult, data_desempenho, relatorio_data) {
         var periods = periodsResult.data;
-        //var sameYear = periodsResult.sameYear;
-        //var firstPeriod = periods[0];
-        //var lastPeriod = periods[periods.length - 1];
-        //vm.graficoDataSource.chart.subcaption = firstPeriod.monthName
-        //    + " de " + firstPeriod.year + " a "
-        //    + lastPeriod.monthName + " de " + lastPeriod.year;
-        //
-        //periods.forEach(function (period) {
-        //    var category = {
-        //        label: sameYear ? period.monthName : period.monthName + "-" + period.year
-        //    }
-        //    vm.graficoDataSource.categories[0].category.push(category);
-        //});
         var dataset = [];
 
         relatorio_data.forEach(function (user, i, arr) {
