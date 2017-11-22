@@ -1,6 +1,5 @@
-app.controller('MainCtrl', function MainCtrl($scope, $location, $anchorScroll, Toast, DesempenhoService, staticData, util) {
+app.controller('MainCtrl', function MainCtrl($scope, Toast) {
     var vm = this;
-
 
     vm.sampleAction = sampleAction;
     function sampleAction(name) {

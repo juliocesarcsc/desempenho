@@ -19,25 +19,18 @@ md-menu-bar {
     padding-top: 12px;
 }
 
-.mask {
-    position: fixed;
-    top: 0px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    z-index: 1000;
-    opacity: 0.2;
-    background: black;
+highchart {
+    display: block;
+    width: 100%;
+    max-width: 100%;
 }
 
-.overlay {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    top: 50%;
-    left: 50%;
-    margin-left: 0px;
-    z-index: 1001;
+.grafico-container {
+    margin-bottom: 18px;
+}
+
+#relatorio-container {
+    padding: 0 16px;
 }
 
 @media only screen and (max-width: 600px) {

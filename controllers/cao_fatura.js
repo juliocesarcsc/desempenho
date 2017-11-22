@@ -96,12 +96,15 @@ var ctrl = {
         relatorio_data.forEach(function (user, i, arr) {
             var serie = {
                 "seriesname": user.no_usuario,
+                "name": user.no_usuario,
+                "id": "id_" + i,
                 "data": []
             };
             var serieCuxtoFijo = {
                 "seriesname": "Cuxto Fijo Medio",
-                "renderas": "line",
-                "showvalues": "0",
+                "name": "Cuxto Fijo Medio",
+                "type": "line",
+                "id": "id_cf",
                 "data": []
             };
 
@@ -109,10 +112,10 @@ var ctrl = {
                 var userPeriod = data_desempenho.find(function (el) {
                     return el.month == prd.month && el.year == prd.year && el.co_usuario == user.co_usuario;
                 });
-                var serieDato = {value: userPeriod ? userPeriod.receita_liquida.toFixed(2) : 0};
-                serie.data.push(serieDato);
+                var serieDato = userPeriod ? userPeriod.receita_liquida.toFixed(2) : 0;
+                serie.data.push(Number(serieDato));
                 if (i == arr.length - 1) {
-                    serieDato = {value: user.cuxto_fijo_medio.toFixed(2)}
+                    serieDato = Number(user.cuxto_fijo_medio.toFixed(2));
                     serieCuxtoFijo.data.push(serieDato);
                 }
             });

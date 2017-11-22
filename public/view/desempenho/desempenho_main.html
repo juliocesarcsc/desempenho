@@ -159,15 +159,14 @@
                                 <div align="right">R$ {{period.comissao | number : 2}}</div>
                             </td>
                             <td>
-                                <div align="right"><font color="#FF0000">R$ {{period.lucro | number : 2}}</font>
+                                <div align="right">R$ {{period.lucro | number : 2}}
                                 </div>
                             </td>
                         </tr>
                         <tr bgcolor="#efefef">
                             <td nowrap="" bgcolor="#efefef"><strong>SALDO</strong></td>
                             <td>
-                                <div align="right"><font color="#000000">R$
-                                    {{consultor.receita_liquida_total | number : 2}}</font></div>
+                                <div align="right">R$ {{consultor.receita_liquida_total | number : 2}}</div>
                             </td>
                             <td>
                                 <div align="right">R$ {{consultor.cuxto_fijo_total | number : 2}}</div>
@@ -182,21 +181,16 @@
                         </tbody>
                     </table>
                 </div>
-                <div layout="row" ng-show="ctrl.showGrafico" id="grafico-container">
+                <div layout="row" ng-show="ctrl.showGrafico" class="grafico-container">
                     <div flex></div>
-                    <div flex="80" style="padding-bottom: 18px">
-                        <fusioncharts
-                                width="100%"
-                                height="350px"
-                                type="mscombi2d"
-                                datasource="{{ctrl.graficoDataSource}}"
-                        ></fusioncharts>
+                    <div flex="80">
+                        <highchart id="relatorio-chart" config="chartOptions"></highchart>
                     </div>
                     <div flex></div>
                 </div>
-                <div layout="row" ng-show="ctrl.showPizza" id="pizza-container">
+                <div layout="row" ng-show="ctrl.showPizza" class="grafico-container">
                     <div flex></div>
-                    <div flex="80" style="padding-bottom: 18px">
+                    <div flex="80">
                         <fusioncharts
                                 flex
                                 width="100%"

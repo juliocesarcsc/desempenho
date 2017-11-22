@@ -48,7 +48,32 @@ app.controller('DesempenhoCtrl', function MainCtrl($scope, Toast, DesempenhoServ
             }
         ],
         "dataset": []
-    }
+    };
+
+    $scope.chartOptions = {
+        "chart": {"type": "column"},
+        "plotOptions": {"series": {"stacking": ""}},
+        "series": [],
+        "title": {text: 'Performance Comercial'},
+        subtitle: {text: "akakakak"},
+        xAxis: {
+            categories: []
+        },
+        yAxis: [{ // Primary yAxis
+            labels: {
+                format: '{value}$R',
+                style: {
+                    color: Highcharts.getOptions().colors[1]
+                }
+            },
+            title: {
+                text: 'Quantidade (Em R$)',
+                style: {
+                    color: Highcharts.getOptions().colors[1]
+                }
+            }
+        }]
+    };
 
 
     vm.addConsultortoQuery = addConsultortoQuery;
@@ -141,33 +166,37 @@ app.controller('DesempenhoCtrl', function MainCtrl($scope, Toast, DesempenhoServ
     }
 
     function grafico() {
-        vm.graficoDataSource.categories[0].category = [];
-        vm.graficoDataSource.dataset = [];
-
+        $scope.chartOptions.xAxis.categories = [];
+        $scope.chartOptions.series = [];
         vm.getDatosFaturaDesempenho(function (result) {
-            if (result.success) {
-                vm.showPizza = false;
-                vm.showGrafico = true;
-                vm.showRelatorio = false;
-
+            if (result.success || true) {
                 var periodsResult = getPeriods();
                 var sameYear = periodsResult.sameYear;
                 var periods = periodsResult.data;
                 var firstPeriod = periods[0];
                 var lastPeriod = periods[periods.length - 1];
-                vm.graficoDataSource.chart.subcaption = firstPeriod.monthName
+                //vm.graficoDataSource.chart.subcaption = firstPeriod.monthName
+                //    + " de " + firstPeriod.year + " a "
+                //    + lastPeriod.monthName + " de " + lastPeriod.year;
+                $scope.chartOptions.subtitle.text = firstPeriod.monthName
                     + " de " + firstPeriod.year + " a "
                     + lastPeriod.monthName + " de " + lastPeriod.year;
 
                 periods.forEach(function (period) {
                     var category = {
                         label: sameYear ? period.monthName : period.monthName + "-" + period.year
-                    }
-                    vm.graficoDataSource.categories[0].category.push(category);
+                    };
+                    $scope.chartOptions.xAxis.categories.push(category.label);
+                    //vm.graficoDataSource.categories[0].category.push(category);
                 });
-                while (result.grafico.length) {
-                    vm.graficoDataSource.dataset.push(result.grafico.pop());
-                }
+                $scope.chartOptions.series = result.grafico;
+                //while (result.grafico.length) {
+                //    $scope.chartOptions.series.push(result.grafico.pop());
+                //}
+
+                vm.showPizza = false;
+                vm.showGrafico = true;
+                vm.showRelatorio = false;
             } else {
                 Toast.show('Ocorreu um erro ao carregar os dados', 'top right', 3000);
             }

@@ -1,4 +1,11 @@
 Sequelize = require('sequelize');
+//var conn_db = {
+//    db_name: "sql3206184",
+//    user: "sql3206184",
+//    password: "MBc6YzFcnv",
+//    host: "sql3.freemysqlhosting.net",
+//}
+
 var conn_db = {
     db_name: "test",
     user: "root",
